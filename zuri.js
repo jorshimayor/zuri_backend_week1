@@ -17,7 +17,7 @@ app.get('/zuri', (req, res) => {
 
     const track = "backend"
 
-    const githubFileUrl = "https://github.com/jorshimayor/zuri_backend_week1/blob/main/api/zuri.js"
+    const githubFileUrl = "https://github.com/jorshimayor/zuri_backend_week1/blob/main/zuri.js"
     const githubRepoUrl = "https://github.com/jorshimayor/zuri_backend_week1"
 
     const response = {
