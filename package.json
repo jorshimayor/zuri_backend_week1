@@ -2,19 +2,17 @@
   "name": "zuri_backend_week1",
   "version": "1.0.0",
   "description": "",
-  "main": "zuri.js",
+  "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node zuri.js", 
-    "build": "npm install",
-    "vercel-build": "npm run build"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "keywords": [],
   "author": "",
   "license": "ISC",
-  "dependencies": {
-    "express": "^4.18.2"
-  },
   "devDependencies": {
     "nodemon": "^3.0.1"
+  },
+  "dependencies": {
+    "express": "^4.18.2"
   }
 }
