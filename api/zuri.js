@@ -32,3 +32,5 @@ app.get('/zuri', (req, res) => {
 
     res.json(response)
 })
+
+module.exports = app
