@@ -9,6 +9,15 @@ app.use(
 );
 app.use(express.json())
 
+app.listen(port, () => {
+  console.log(`Server running on port ${port}`)
+});
+
+app.get("/", (req, res) =>{
+  res.send(
+    "Hello!!!"
+  )
+})
 
 app.get("/api", (req, res) => {
   const slack_name = req.query.slack_name
@@ -17,7 +26,7 @@ app.get("/api", (req, res) => {
   if (!slack_name || !track) {
     return res
       .status(400)
-      .send({ error: "Both slack_name and track parameters are required!" })
+      .send({ error: "slack_name and track parameters are required!" })
   }
 
   const currentDate = new Date()
@@ -30,17 +39,19 @@ app.get("/api", (req, res) => {
     "Friday",
     "Saturday",
   ]
-  
+
   const currentDay = Day[currentDate.getUTCDay()]
   const utcTime = new Date().toISOString().slice(0, -5) + "Z"
+  const githubFileUrl = "https://github.com/jorshimayor/zuri_backend_week1/blob/main/backend/index.js"
+  const githubRepoUrl = "https://github.com/jorshimayor/zuri_backend_week1"
 
   const response = {
     slack_name,
     current_day: currentDay,
     utc_time: utcTime,
     track,
-    github_file_url: "https://github.com/jorshimayor/zuri_backend_week1/blob/main/backend/index.js",
-    github_repo_url: "https://github.com/jorshimayor/zuri_backend_week1",
+    github_file_url: githubFileUrl,
+    github_repo_url: githubRepoUrl,
     status_code: 200,
   };
 
@@ -53,8 +64,5 @@ app.get("*", (req, res) => {
   });
 });
 
-app.listen(port, () => {
-  console.log(`Server running on port ${port}`)
-});
 
 module.exports = app
